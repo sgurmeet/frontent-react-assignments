@@ -3,26 +3,18 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 
 function RenderLeader({leader}) {
-    var imgStyle = {
-        minWidth: "128px",
-    };
-
     return (
-        <div className="container">
-            <p>
-                <Media>
-                    <Media left href="#">
-                        <Media className="mr-3" object src={leader.image} alt={leader.name} />
-                    </Media>
-                    <Media body>
-                        <Media heading>
-                            {leader.name}
-                        </Media>
-                        <p>{leader.designation}</p>
-                        {leader.description}
-                    </Media>
+        <div key={leader.id} className="col-12 mt-5">
+            <Media tag="li">
+                <Media left middle>
+                    <Media object src={leader.image} alt={leader.name} />
                 </Media>
-            </p>
+                <Media body className="ml-5">
+                    <Media heading>{leader.name}</Media>
+                    <p>{leader.designation}</p>
+                    {leader.description}
+                </Media>
+            </Media>
         </div>
     );
 }
